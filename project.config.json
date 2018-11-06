@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx209f2a517f2da552",
-	"projectname": "123",
+	"projectname": "login",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
