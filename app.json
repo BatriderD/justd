@@ -1,12 +1,36 @@
 {
-  "pages":[
+  "pages": [
+    "pages/home/home",
+    "pages/mine/mine",
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#B22222",
+    "color": "#fff",
+    "selectedColor": "#FDDF6D",
+    "navigationBarTitleText": "玖零食品",
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "1",
+        "iconPath": "/pages/images/tabbar/tabbar_home.png",
+        "selectedIconPath": "/pages/images/tabbar/tabbar_home_selected.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "2",
+        "iconPath": "/pages/images/tabbar/tabbar_account.png",
+        "selectedIconPath": "/pages/images/tabbar/tabbar_account_selected.png"
+      }
+    ]
   }
 }
