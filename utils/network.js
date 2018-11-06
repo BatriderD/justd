@@ -1,10 +1,8 @@
 // URL
-const API_URL = 'https://www.kar98.com.cn/';
+const API_URL = 'http://192.168.2.74:80';
 
 //测试请求url
 const ReqURL = "http://testapi.kdniao.cc:8081/api/dist";
-//正式请求url
-// const ReqURL = "http://api.kdniao.cc/api/dist";
 
 /*
 展示进度条的网络请求
@@ -15,7 +13,7 @@ fail：失败的回调
 function GET(url, params, success, fail) {
 
   let message = '数据加载中'
-
+  
   console.log('requestURL:' + API_URL + url)
 
   wx.showLoading({
