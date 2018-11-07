@@ -14,29 +14,41 @@
   width: 100%;
   align-items: center;
   display: -webkit-flex;
+  border-width: 1px;
+  padding: 5px;
+  border-style: solid;
+  border-color: grey;
 }
-.user-name{
+
+.user-name {
   margin-left: 10rpx;
 }
-.user-button{
+
+.user-button {
   display: -webkit-flex;
   margin-left: auto;
   margin-right: 10rpx;
-  padding: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
 }
-.del{
+
+.del {
   font-size: 20;
   color: yellow;
   margin-right: 10rpx;
 }
-.change{
+
+.change {
   font-size: 20;
   color: red;
 }
+
 /* 横着的分割View样式 */
+
 /*分割线样式*/
-.divLine{
+
+/* .divLine{
  background: #E0E3DA;
  width: 100%;
  height: 5rpx;
-}
+} */
