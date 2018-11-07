@@ -10,7 +10,53 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    //账号密码
+    phone: '',
+    password: '',
+    //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
+    hiddenmodalput: true
+  },
+
+  loginInfoSystem: function () {
+    this.setData({
+      hiddenmodalput: !this.data.hiddenmodalput
+    })
+  },
+
+  //点击按钮痰喘指定的hiddenmodalput弹出框
+  modalinput: function () {
+    this.setData({
+      hiddenmodalput: !this.data.hiddenmodalput
+    })
+  },
+  //取消按钮
+  cancel: function () {
+    this.setData({
+      hiddenmodalput: true
+    })
+  },
+  //确认
+  confirm: function () {
+    this.setData({
+      hiddenmodalput: true
+    })
+  },
+
+  /**
+   * 监听账号输入
+   */
+  listenerPhoneInput: function (e) {
+    this.data.phone = e.detail.value;
+    console.log(this.data.phone)
+  },
+
+  /**
+   * 监听密码输入
+   */
+  listenerPasswordInput: function (e) {
+    this.data.phone = e.detail.value;
+    console.log(this.data.phone)
   },
 
   /**
@@ -56,10 +102,6 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-
-  loginInfoSystem: function (){
-    
   },
 
   /**

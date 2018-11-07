@@ -1,5 +1,6 @@
 <!--pages/mine/mine.wxml-->
 <view class='mine-container'>
+  <!--header.wxml-->
   <view class='mine-header'>
     <button class='mine-getUserInfo' wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" color="white">登录</button>
     <block wx:else>
@@ -8,4 +9,9 @@
       <button class='userinfo-loginInfo' color='withe' bindtap='loginInfoSystem'>登录内部信息系统</button>
     </block>
   </view>
+  <!--show.wxml-->
+  <modal hidden="{{hiddenmodalput}}" title="登录内部信息系统" confirm-text="登录" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+      <input class='input-account' bindinput='listenerPhoneInput' type='text'placeholder="请输入内部账号" auto-focus/>
+      <input class='input-password' bindinput='listenerPasswordInput' type='text'placeholder="请输入密码" auto-focus/>
+  </modal>
 </view>
