@@ -67,7 +67,7 @@ success:成功的回调函数
 fail：失败的回调
 */
 function POST(url, params, success, fail) {
-
+  
   let message = '数据加载中'
 
   console.log('requestURL:' + API_URL + url)

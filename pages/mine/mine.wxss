@@ -44,8 +44,8 @@ page {
 }
 
 .userinfo-loginInfo {
-  width: 100rpx;
-  height: 100rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+  width: 280rpx;
+  height: 70rpx;
+  font-size: 27rpx;
+  margin-right: 50rpx;
 }

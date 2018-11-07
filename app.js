@@ -1,4 +1,8 @@
 //app.js
+
+var network = require("/utils/network.js")
+var api = require("/utils/api.js")
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -32,7 +36,22 @@ App({
         }
       }
     })
+
+    // 登录内部信息系统-匿名登录
+    this.loginNickInfoSystem();
   },
+
+  loginNickInfoSystem:function() {
+    network.POST(api.nickLogin, {
+      function(res) {
+        debugger
+      },
+      function(err) {
+        console.log(err)
+      }
+    })
+  },
+
   globalData: {
     userInfo: null
   }
