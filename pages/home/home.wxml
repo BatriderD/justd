@@ -16,8 +16,8 @@
     <view class="user-item">
       <text class='user-name'>张三</text>
         <view class='user-button'> 
-        <view class='del'>删除</view>
-        <view class='change'>修改</view>
+        <view class='del' bindtap="del" data-address-id="{{item.id}}">删除</view>
+        <view class='change'  bindtap="chaneg" data-address-id="{{item.id}}" >修改</view>
        </view>   
     </view>
      <view class="divLine"></view>
