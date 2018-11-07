@@ -11,7 +11,7 @@
   </view>
   <!--show.wxml-->
   <modal hidden="{{hiddenmodalput}}" title="登录内部信息系统" confirm-text="登录" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
-      <input class='input-account' bindinput='listenerPhoneInput' type='text'placeholder="请输入内部账号" auto-focus/>
-      <input class='input-password' bindinput='listenerPasswordInput' type='text'placeholder="请输入密码" auto-focus/>
+       <input class='input-account' bindinput='listenerPhoneInput' type='text'placeholder="请输入账号"/>
+      <input class='input-password' bindinput='listenerPasswordInput' type='text'placeholder="请输入密码"/> <!--auto-focus-->
   </modal>
 </view>

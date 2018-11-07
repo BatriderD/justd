@@ -17,7 +17,8 @@ Page({
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
     hiddenmodalput: true
   },
-
+  
+  //点击登录内部信息系统按钮
   loginInfoSystem: function () {
     this.setData({
       hiddenmodalput: !this.data.hiddenmodalput
@@ -50,7 +51,7 @@ Page({
     this.data.phone = e.detail.value;
     console.log(this.data.phone)
   },
-
+  
   /**
    * 监听密码输入
    */
