@@ -1,1 +1,51 @@
 /* pages/mine/mine.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background: #f4f4f4;
+}
+
+.mine-container {
+  background-color: #CD5C5C;
+}
+
+/*头部背景*/
+
+.mine-header {
+  position: fixed;
+  background-color: #B22222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  font-size: 28rpx;
+  height: 130rpx;
+  width: 100%;
+}
+
+.mine-getUserInfo {
+  position:relative;
+  justify-content:center;
+  background-color: #fff;
+  height: 60rpx;
+  width: 130rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  padding:0;
+  color: #595959;
+  right: 30rpx;
+}
+
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-loginInfo {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}

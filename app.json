@@ -3,7 +3,8 @@
     "pages/home/home",
     "pages/mine/mine",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/mall/mall"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,6 +29,12 @@
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
+        "iconPath": "/pages/images/tabbar/tabbar_account.png",
+        "selectedIconPath": "/pages/images/tabbar/tabbar_account_selected.png"
+      },
+      {
+        "pagePath": "pages/mall/mall",
+        "text": "商城",
         "iconPath": "/pages/images/tabbar/tabbar_account.png",
         "selectedIconPath": "/pages/images/tabbar/tabbar_account_selected.png"
       }

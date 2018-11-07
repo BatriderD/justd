@@ -1,2 +1,11 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class='mine-container'>
+  <view class='mine-header'>
+    <button class='mine-getUserInfo' wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" color="white">登录</button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="name">{{userInfo.nickName}}</text>
+      <button class='userinfo-loginInfo' color='withe'>登录内部信息系统</button>
+    </block>
+  </view>
+</view>
