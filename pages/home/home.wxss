@@ -1,1 +1,42 @@
-/* pages/home/home.wxss */
+.container {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.user-item {
+  width: 100%;
+  align-items: center;
+  display: -webkit-flex;
+}
+.user-name{
+  margin-left: 10rpx;
+}
+.user-button{
+  display: -webkit-flex;
+  margin-left: auto;
+  margin-right: 10rpx;
+  padding: 10rpx;
+}
+.del{
+  font-size: 20;
+  color: yellow;
+  margin-right: 10rpx;
+}
+.change{
+  font-size: 20;
+  color: red;
+}
+/* 横着的分割View样式 */
+/*分割线样式*/
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+}

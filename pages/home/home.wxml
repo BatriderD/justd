@@ -1,2 +1,25 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<!-- <view class="container">
+  <view class="user-list" wx:for-items="{{userList}}" wx:key="{{index}}">
+    <view class='user-item'>
+      <view class='user-name'>张三</view>
+      <view class='user-button'>
+        <view class='del'>删除</view>
+        <view class='del'>修改</view>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<!--logs.wxml-->
+<view class="container user-list">
+  <block wx:for="{{userList}}" wx:for-item="{{index}}">
+    <view class="user-item">
+      <text class='user-name'>张三</text>
+        <view class='user-button'> 
+        <view class='del'>删除</view>
+        <view class='change'>修改</view>
+       </view>   
+    </view>
+     <view class="divLine"></view>
+  </block>
+</view>
