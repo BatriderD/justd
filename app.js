@@ -39,10 +39,12 @@ App({
         }
       }
     })
-
+    debugger
+    console.log('我进来了');
     // 登录内部信息系统-匿名登录
-    network.POST(api.nickLogin, {},
+    network.POST(api.nickLogin, {},'',
       function (res) {
+        console.log('我成功了');
         console.log(res.result.token);
         that.globalData.userNickToken = res.result.token
       },
