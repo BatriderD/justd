@@ -36,18 +36,10 @@ App({
         }
       }
     })
-
-    // 登录内部信息系统-匿名登录
-    // network.POST(api.nickLogin,
-    //   function (res) {
-    //     console,log(res)
-    //   },
-    //   function (err) {
-    //     console.log(err)
-    //   })
   },
 
   globalData: {
-    userInfo: null
+    userInfo: null,
+    userNickToken: ''
   }
 })

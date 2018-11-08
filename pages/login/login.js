@@ -1,4 +1,10 @@
 // pages/login/login.js
+
+var network = require("../../utils/network.js")
+var api = require("../../utils/api.js")
+//获取应用实例
+var app = getApp()
+
 Page({
 
   /**
@@ -19,7 +25,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+    var that = this;
+    that.nickLoginTO();
+  },
 
+  // 登录内部信息系统-匿名登录
+  nickLoginTO: function () {
+    network.POST(api.nickLogin, {},
+      function(res) {
+        console, log('123')
+      },
+      function(err) {
+        console.log('err')
+      }
+    );
   },
 
   /**

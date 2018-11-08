@@ -1,5 +1,5 @@
 // URL
-const API_URL = 'http://192.168.2.74:80';
+const API_URL = 'http://192.168.2.74'
 
 /*
 展示进度条的网络请求
@@ -29,12 +29,8 @@ function GET(url, params, success, fail) {
       // log
       console.log(res.data)
       
-      if (res.statusCode == 200) {
-        if (res.data.code == '0000') {
-          success(res.data)
-        } else {
-          fail(res.data)
-        }
+      if (res.data.status == 200) {  
+        success(res.data)
       } else {
         wx.showToast({
           image: "/pages/images/icon_fail.png",
@@ -81,22 +77,16 @@ function POST(url, params, success, fail) {
     },
     method: 'POST',
     success: function (res) {
-
       // log
       console.log(res.data)
-
-      if (res.statusCode == 200) {
-        if (res.data.code == '0000') {
-          success(res.data)
-        } else {
-          fail({ code: res.data.code, msg: res.data.msg })
-        }
+      if (res.data.status == 200) {
+        success(res.data)
       } else {
         wx.showToast({
           image: "/pages/images/icon_fail.png",
-          title: "网络错误",
+          title: res.data.message,
         })
-        fail({ code: res.statusCode, msg: "网络错误" })
+        fail({ code: res.data.code, msg: res.data.message })
       }
     },
     fail: function (res) {
@@ -104,7 +94,7 @@ function POST(url, params, success, fail) {
         image: "/pages/images/icon_fail.png",
         title: "网络错误",
       })
-      fail({ code: res.statusCode, msg: "网络错误" })
+      fail({ code: res.data.code, msg: "网络错误" })
     },
     complete: function (res) {
       wx.hideLoading()
@@ -137,16 +127,11 @@ function PUT(url, params, success, fail) {
     },
     method: 'PUT',
     success: function (res) {
-
       // log
       console.log(res.data)
 
-      if (res.statusCode == 200) {
-        if (res.data.code == '0000') {
-          success(res.data)
-        } else {
-          fail({ code: res.data.code, msg: res.data.msg })
-        }
+      if (res.data.status == 200) {
+        success(res.data)
       } else {
         wx.showToast({
           image: "/pages/images/icon_fail.png",
@@ -193,16 +178,11 @@ function DELETE(url, params, success, fail) {
     },
     method: 'DELETE',
     success: function (res) {
-
       // log
       console.log(res.data)
 
-      if (res.statusCode == 200) {
-        if (res.data.code == '0000') {
-          success(res.data)
-        } else {
-          fail({ code: res.data.code, msg: res.data.msg })
-        }
+      if (res.data.status == 200) {
+        success(res.data)
       } else {
         wx.showToast({
           image: "/pages/images/icon_fail.png",
