@@ -16,6 +16,7 @@ Page({
   },
 
   loginBindTap: function (e) {
+    console.log(app.globalData.userNickToken)
     wx.switchTab({
       url: '../home/home',
     })
@@ -26,23 +27,9 @@ Page({
    */
   onLoad: function (options) {
     
-    var that = this;
-    that.nickLoginTO();
   },
 
-  // 登录内部信息系统-匿名登录
-  nickLoginTO: function () {
-    var that = this;
-    network.POST(api.nickLogin, {},
-      function(res) {
-        console.log(res.result.token);
-        
-      },
-      function(err) {
-        console.log('err');
-      }
-    )
-  },
+  
 
   /**
    * 监听账号输入

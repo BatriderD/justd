@@ -5,6 +5,9 @@ var api = require("/utils/api.js")
 
 App({
   onLaunch: function () {
+
+    var that = this;
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -36,6 +39,17 @@ App({
         }
       }
     })
+
+    // 登录内部信息系统-匿名登录
+    network.POST(api.nickLogin, {},
+      function (res) {
+        console.log(res.result.token);
+        that.globalData.userNickToken = res.result.token
+      },
+      function (err) {
+        console.log('err');
+      }
+    )
   },
 
   globalData: {
