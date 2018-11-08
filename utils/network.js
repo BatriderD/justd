@@ -1,6 +1,9 @@
 // URL
 const API_URL = 'http://192.168.2.74'
 
+//获取应用实例
+var app = getApp()
+
 /*
 展示进度条的网络请求
 url:网络请求的url
@@ -62,7 +65,7 @@ fail：失败的回调
 function POST(url, params, success, fail) {
   
   let message = '数据加载中'
-
+  
   console.log('requestURL: ' + API_URL + url)
 
   wx.showLoading({
@@ -73,7 +76,7 @@ function POST(url, params, success, fail) {
     data: params,
     header: {
       'Content-Type': 'application/json',
-      'product': 'iOS'
+      'product': 'iOS',
     },
     method: 'POST',
     success: function (res) {

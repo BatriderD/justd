@@ -51,9 +51,10 @@ App({
       }
     )
   },
-
+  
   globalData: {
     userInfo: null,
-    userNickToken: ''
+    userNickToken: '',
+    userLoginToken: ''
   }
 })

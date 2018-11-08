@@ -17,9 +17,23 @@ Page({
 
   loginBindTap: function (e) {
     console.log(app.globalData.userNickToken)
-    wx.switchTab({
-      url: '../home/home',
-    })
+    // wx.switchTab({
+    //   url: '../home/home',
+    // })
+
+    var params = {
+      'loginId': '2200',
+      'password': 'a123456'
+    }
+    
+    network.POST(api.loginToken, params,
+      function (res) {
+        debugger
+      },
+      function (err) {
+        debugger
+      }
+    )
   },
 
   /**
@@ -28,8 +42,6 @@ Page({
   onLoad: function (options) {
     
   },
-
-  
 
   /**
    * 监听账号输入
@@ -43,8 +55,8 @@ Page({
    * 监听密码输入
    */
   listenerPasswordInput: function (e) {
-    this.data.phone = e.detail.value;
-    console.log(this.data.phone)
+    this.data.password = e.detail.value;
+    console.log(this.data.password)
   },
 
   /**
