@@ -26,7 +26,7 @@ Page({
       'password': 'a123456'
     }
     
-    network.POST(api.loginToken, params,
+    network.POST(api.loginToken, params, getApp().globalData.userNickToken,
       function (res) {
         debugger
       },

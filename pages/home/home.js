@@ -29,6 +29,15 @@ Page({
     var params = {
       'page': that.data.currentPage,
     }
+    network.GET(api.getUserList
+    ,null,
+    function(res){
+      //列表成功
+      console.log(res.data)
+    },function(res){
+      //获取列表失败
+      console.log(res.data)
+    });
     that.setData({
       userList: [{
         uName: "张三",
@@ -77,95 +86,6 @@ Page({
         amountReal: 10,
       }]
     });
-    // network.POST(api.getUserList, params, function (res) {
-    //   console.log('获取列表成功 进行赋值')
-
-    //   that.setData({
-    //     userList: [
-    //       {
-    //         id:123,
-    //         dateAdd: "2018 11:38:49",
-    //         status: 1,
-    //         statusStr: "已发货",
-    //         id: "1345645646",
-    //         orderNumber: "987654312",
-    //         remark: "辣死我谢谢",
-    //         amountReal: 10,
-    //       }, {
-    //         id: 123,
-    //         dateAdd: "2018 11:38:49",
-    //         status: 1,
-    //         statusStr: "已发货",
-    //         id: "1345645646",
-    //         orderNumber: "987654312",
-    //         remark: "辣死我谢谢",
-    //         amountReal: 10,
-    //       }, {
-    //         id: 123,
-    //         dateAdd: "2018 11:38:49",
-    //         status: 1,
-    //         statusStr: "已发货",
-    //         id: "1345645646",
-    //         orderNumber: "987654312",
-    //         remark: "辣死我谢谢",
-    //         amountReal: 10,
-    //       }, {
-    //         id: 123,
-    //         dateAdd: "2018 11:38:49",
-    //         status: 1,
-    //         statusStr: "已发货",
-    //         id: "1345645646",
-    //         orderNumber: "987654312",
-    //         remark: "辣死我谢谢",
-    //         amountReal: 10,
-    //       }
-    //     ]
-    //   });
-    // },
-    //   function (err) {
-    //     console.log('获取列表失败 提示用户')
-    //     that.setData({
-    //       userList: [
-    //         {
-    //           id: 123,
-    //           dateAdd: "2018 11:38:49",
-    //           status: 1,
-    //           statusStr: "已发货",
-    //           id: "1345645646",
-    //           orderNumber: "987654312",
-    //           remark: "辣死我谢谢",
-    //           amountReal: 10,
-    //         }, {
-    //           id: 123,
-    //           dateAdd: "2018 11:38:49",
-    //           status: 1,
-    //           statusStr: "已发货",
-    //           id: "1345645646",
-    //           orderNumber: "987654312",
-    //           remark: "辣死我谢谢",
-    //           amountReal: 10,
-    //         }, {
-    //           id: 123,
-    //           dateAdd: "2018 11:38:49",
-    //           status: 1,
-    //           statusStr: "已发货",
-    //           id: "1345645646",
-    //           orderNumber: "987654312",
-    //           remark: "辣死我谢谢",
-    //           amountReal: 10,
-    //         }, {
-    //           id: 123,
-    //           dateAdd: "2018 11:38:49",
-    //           status: 1,
-    //           statusStr: "已发货",
-    //           id: "1345645646",
-    //           orderNumber: "987654312",
-    //           remark: "辣死我谢谢",
-    //           amountReal: 10,
-    //         }
-    //       ]
-    //     });
-    //   });
     wx.hideLoading();
 
   },
