@@ -32,14 +32,16 @@ Page({
 
   // 登录内部信息系统-匿名登录
   nickLoginTO: function () {
+    var that = this;
     network.POST(api.nickLogin, {},
       function(res) {
-        console, log('123')
+        console.log(res.result.token);
+        
       },
       function(err) {
-        console.log('err')
+        console.log('err');
       }
-    );
+    )
   },
 
   /**
