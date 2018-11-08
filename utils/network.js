@@ -1,9 +1,6 @@
 // URL
 const API_URL = 'http://192.168.2.74:80';
 
-//测试请求url
-const ReqURL = "http://testapi.kdniao.cc:8081/api/dist";
-
 /*
 展示进度条的网络请求
 url:网络请求的url
@@ -23,15 +20,15 @@ function GET(url, params, success, fail) {
   wx.request({
     url: API_URL + url,
     data: params,
-    // header: {
-    // 'Content-Type': 'application/json'
-    // 'content-type': 'application/x-www-form-urlencoded'
-    // },
+    header: {
+      'Content-Type': 'application/json',//application/x-www-form-urlencoded
+      'product': 'iOS'
+    },
     method: 'GET',
     success: function (res) {
       // log
       console.log(res.data)
-
+      
       if (res.statusCode == 200) {
         if (res.data.code == '0000') {
           success(res.data)
@@ -78,10 +75,10 @@ function POST(url, params, success, fail) {
   wx.request({
     url: API_URL + url,
     data: params,
-    // header: {
-    // 'Content-Type': 'application/json'
-    // 'content-type': 'application/x-www-form-urlencoded'
-    // },
+    header: {
+      'Content-Type': 'application/json',
+      'product': 'iOS'
+    },
     method: 'POST',
     success: function (res) {
 
@@ -134,10 +131,10 @@ function PUT(url, params, success, fail) {
   wx.request({
     url: API_URL + url,
     data: params,
-    // header: {
-    // 'Content-Type': 'application/json'
-    // 'content-type': 'application/x-www-form-urlencoded'
-    // },
+    header: {
+      'Content-Type': 'application/json',
+      'product': 'iOS'
+    },
     method: 'PUT',
     success: function (res) {
 
@@ -190,10 +187,10 @@ function DELETE(url, params, success, fail) {
   wx.request({
     url: API_URL + url,
     data: params,
-    // header: {
-    // 'Content-Type': 'application/json'
-    // 'content-type': 'application/x-www-form-urlencoded'
-    // },
+    header: {
+      'Content-Type': 'application/json',
+      'product': 'iOS'
+    },
     method: 'DELETE',
     success: function (res) {
 
@@ -231,4 +228,6 @@ function DELETE(url, params, success, fail) {
 module.exports = {
   GET: GET,
   POST: POST,
+  PUT: PUT,
+  DELETE: DELETE,
 }

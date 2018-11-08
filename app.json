@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/home/home",
     "pages/mine/mine",
     "pages/index/index",
@@ -13,16 +14,16 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "backgroundColor": "#B22222",
+    "backgroundColor": "#1498F7",
     "color": "#fff",
     "selectedColor": "#FDDF6D",
-    "navigationBarTitleText": "玖零食品",
+    "navigationBarTitleText": "123",
     "borderStyle": "white",
     "position": "bottom",
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "1",
+        "text": "主页",
         "iconPath": "/pages/images/tabbar/tabbar_home.png",
         "selectedIconPath": "/pages/images/tabbar/tabbar_home_selected.png"
       },
