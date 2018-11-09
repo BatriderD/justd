@@ -9,10 +9,12 @@ var app = getApp()
 /*
 展示进度条的网络请求
 url:网络请求的url
-success:成功的回调函数
+params:参数
+token:用户Token
+success:成功的回调
 fail：失败的回调
 */
-function GET(url, params, token,success, fail) {
+function GET(url, params, token, success, fail) {
 
   let message = '数据加载中'
   
@@ -40,17 +42,17 @@ function GET(url, params, token,success, fail) {
       } else {
         wx.showToast({
           image: "/pages/images/icon_fail.png",
-          title: res.data.message,
+          title: getMessage(res.data.message),
         })
         fail(res.data)
       }
     },
-    fail: function (res) {
+    fail: function (err) {
       wx.showToast({
         image: "/pages/images/icon_fail.png",
-        title: res.data.message,
+        title: "网络错误",
       })
-      fail(res)
+      fail(err)
     },
     complete: function (res) {
       wx.hideLoading()
@@ -58,12 +60,18 @@ function GET(url, params, token,success, fail) {
   })
 };
 
+function getMessage (message) {
+  // str =”jpg | bmp | gif | ico | png”; arr = str.split(”|”);
+  var arr = message.split('--')
+  if (arr.length == 2) {
+    return arr[1]
+  }else {
+    return message;
+  }
+}
+
 /*
-展示进度条的网络请求
-url:网络请求的url
-params:请求参数
-success:成功的回调函数
-fail：失败的回调
+POST
 */
 function POST(url, params, token, success, fail) {
   
@@ -91,19 +99,18 @@ function POST(url, params, token, success, fail) {
         success(res.data)
       } else {
         wx.showToast({
-          image: "/pages/images/icon_fail.png",
-          title: res.data.message,
+          // image: "/pages/images/icon_fail.png",
+          title: getMessage(res.data.message),
         })
         fail({ code: res.data.status, msg: res.data.message })
       }
     },
-    fail: function (res) {
+    fail: function (err) {
       wx.showToast({
         image: "/pages/images/icon_fail.png",
-        title: res.data.message,
+        title: "网络错误",
       })
-      fail({
-        code: res.data.status, msg: res.data.message })
+      fail(err)
     },
     complete: function (res) {
       wx.hideLoading()
@@ -112,13 +119,9 @@ function POST(url, params, token, success, fail) {
 };
 
 /*
-展示进度条的网络请求
-url:网络请求的url
-params:请求参数
-success:成功的回调函数
-fail：失败的回调
+PUT
 */
-function PUT(url, params, success, fail) {
+function PUT(url, params, token, success, fail) {
 
   let message = '数据加载中'
 
@@ -132,7 +135,8 @@ function PUT(url, params, success, fail) {
     data: params,
     header: {
       'Content-Type': 'application/json',
-      'product': 'iOS'
+      'product': 'iOS',
+      "token": token
     },
     method: 'PUT',
     success: function (res) {
@@ -144,17 +148,17 @@ function PUT(url, params, success, fail) {
       } else {
         wx.showToast({
           image: "/pages/images/icon_fail.png",
-          title: res.data.message,
+          title: getMessage(res.data.message),
         })
         fail({ code: res.data.status, msg: res.data.message })
       }
     },
-    fail: function (res) {
+    fail: function (err) {
       wx.showToast({
         image: "/pages/images/icon_fail.png",
-        title: res.data.message,
+        title: "网络错误",
       })
-      fail({ code: res.data.status, msg: res.data.message })
+      fail(err)
     },
     complete: function (res) {
       wx.hideLoading()
@@ -163,13 +167,9 @@ function PUT(url, params, success, fail) {
 };
 
 /*
-展示进度条的网络请求
-url:网络请求的url
-params:请求参数
-success:成功的回调函数
-fail：失败的回调
+DELETE
 */
-function DELETE(url, params, success, fail) {
+function DELETE(url, params, token, success, fail) {
 
   let message = '数据加载中'
 
@@ -183,7 +183,8 @@ function DELETE(url, params, success, fail) {
     data: params,
     header: {
       'Content-Type': 'application/json',
-      'product': 'iOS'
+      'product': 'iOS',
+      "token": token
     },
     method: 'DELETE',
     success: function (res) {
@@ -195,17 +196,17 @@ function DELETE(url, params, success, fail) {
       } else {
         wx.showToast({
           image: "/pages/images/icon_fail.png",
-          title: res.data.message,
+          title: getMessage(res.data.message),
         })
         fail({ code: res.data.status, msg: res.data.message })
       }
     },
-    fail: function (res) {
+    fail: function (err) {
       wx.showToast({
         image: "/pages/images/icon_fail.png",
-        title: res.data.message,
+        title: "网络错误",
       })
-      fail({ code: res.data.status, msg: res.data.message })
+      fail(err)
     },
     complete: function (res) {
       wx.hideLoading()
