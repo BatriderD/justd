@@ -23,7 +23,7 @@ Page({
     var pas = util.hexMD5('a123456');
 
     var params = {
-      'loginId': '18691009168',
+      'loginId': '18966601631',
       'password': pas,
       'agency': '"SUPER_ADMIN"'
     }

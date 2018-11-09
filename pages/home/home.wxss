@@ -53,3 +53,13 @@
   font-size: 35rpx;
   margin-top: 20rpx;
 }
+.btn{
+width:100%;
+color:green;
+background-color: red;
+padding: 20rpx;
+margin: 0 auto;
+text-align:center;
+position:fixed;
+bottom:0; 
+}

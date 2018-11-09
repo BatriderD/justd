@@ -6,8 +6,9 @@ Page({
     currentPage: 0,
     hiddenmodalput: true,
     userList: [],
-    changeName:"123",
-    changeIndex:-1,
+    changeName: "123",
+    changeIndex: -1,
+    changeItem: {},
   },
 
   onLoad: function(options) {
@@ -29,63 +30,19 @@ Page({
     var params = {
       'page': that.data.currentPage,
     }
-    network.GET(api.getUserList
-    ,null,
-    function(res){
-      //列表成功
-      console.log(res.data)
-    },function(res){
-      //获取列表失败
-      console.log(res.data)
-    });
-    that.setData({
-      userList: [{
-        uName: "张三",
-        dateAdd: "2018 11:38:49",
-        status: 1,
-        statusStr: "已发货",
-        id: "1",
-        orderNumber: "987654312",
-        remark: "辣死我谢谢",
-        amountReal: 10,
-      }, {
-        uName: "李四",
-        dateAdd: "2018 11:38:49",
-        status: 1,
-        statusStr: "已发货",
-        id: "2",
-        orderNumber: "987654312",
-        remark: "辣死我谢谢",
-        amountReal: 10,
-      }, {
-        uName: "王五",
-        dateAdd: "2018 11:38:49",
-        status: 1,
-        statusStr: "已发货",
-        id: "3",
-        orderNumber: "987654312",
-        remark: "辣死我谢谢",
-        amountReal: 10,
-      }, {
-        uName: "朱六",
-        dateAdd: "2018 11:38:49",
-        status: 1,
-        statusStr: "已发货",
-        id: "4",
-        orderNumber: "987654312",
-        remark: "辣死我谢谢",
-        amountReal: 10,
-      }, {
-        uName: "卓七",
-        dateAdd: "2018 11:38:49",
-        status: 1,
-        statusStr: "已发货",
-        id: "5",
-        orderNumber: "987654312",
-        remark: "辣死我谢谢",
-        amountReal: 10,
-      }]
-    });
+    network.GET(api.getUserList, null, app.globalData.userLoginToken,
+      function(res) {
+        //列表成功
+        that.setData({
+          userList: res.result
+        });
+        console.log(res.data)
+      },
+      function(res) {
+        //获取列表失败
+        console.log(res.data)
+      });
+
     wx.hideLoading();
 
   },
@@ -107,44 +64,33 @@ Page({
   },
   //删除用户
   del: function(event) {
-    let that = this;
+    let that = this
+    this.setData({
+      changeIndex: event.target.dataset.sequencenbr,
+      changeItem: {},
+    })
     wx.showModal({
       title: '',
       content: '确定要删除该用户？',
       success: function(res) {
         if (res.confirm) {
-          wx.showToast({
-            title: '刷新列表',
-            duration: 0.5,
-            mask: true,
+          var index = that.data.changeIndex;
+          var item = new Array();
+          item[0] = that.data.changeIndex;
+
+          network.DELETE(api.delItem, item, app.globalData.userLoginToken, function(res) {
+            //列表成功
+            console.log(res.data)
+            that.onShow()
+          }, function(res) {
+            //获取列表失败
+            console.log(res.data)
           })
-          var newList = that.data.userList;
-          var id = event.target.dataset.userId;
-          var index = 0;
-          for (var i = 0; i < newList.length; i++) {
-            if (newList[i].id == id) {
-              index = i;
-              break
-            }
-          }
-
-
-          newList.splice(index, 1);
+          // newList[index].uName = that.data.changeName,
           that.setData({
-            userList: newList
-          });
-      
-          // 网络请求
-          // let addressId = event.target.dataset.userId;
-          // var data = { 'userId': addressId }
-          // network.GET(api.addressDelete, data,
-          //   function (res) {
-          //     console.log("删除成功：" + res)
-          //     that.onShow()
-          //   },
-          //   function (err) {
-          //     console.log("删除失败：" + err.msg)
-          //   })
+            // userList: newList,
+            changeName: "",
+          })
         }
       }
     })
@@ -152,34 +98,94 @@ Page({
   },
   //修改用户
   change: function(event) {
+
     this.setData({
       changeName: "",
-      changeIndex: event.target.dataset.index,
+      changeIndex: event.target.dataset.sequencenbr,
       hiddenmodalput: false,
+      changeItem: event.target.dataset.item,
     })
   },
+  //修改用户
+  add: function (event) {
+
+    this.setData({
+      changeName: "",
+      changeIndex: '',
+      hiddenmodalput: false,
+      changeItem: {
+        'addrDetail': '123',
+        'city': '120000',
+        'province': '100001',
+        'recieverName': '123',
+        'recieverPhone': '18966601631',
+        'region': '120101',
+      },
+    })
+  },
+  // add: function(event) {
+  //   this.setData({
+  //     changeName: "",
+  //     changeIndex: event.target.dataset.sequencenbr,
+  //     hiddenmodalput: false,
+  //     changeItem: {
+  //       addrDetail: 14124,
+  //       city: 120000,
+  //       isDefault,
+  //       province: 100001,
+  //       recieverName: 123,
+  //       recieverPhone: 18966601631,
+  //       region: 120101,
+  //     },
+  //   })
+  // },
 
   //取消按钮
-  cancel: function () {
- 
+  cancel: function() {
+
     this.setData({
       changeIndex: -1,
       hiddenmodalput: true
     })
   },
   //确认
-  confirm: function (e) {
+  confirm: function(e) {
+    let that = this;
     var newList = this.data.userList;
     var index = this.data.changeIndex;
-    newList[index].uName = this.data.changeName,
+    var item = this.data.changeItem;
+    item.recieverName = this.data.changeName;
+    if(index==null|| index==''){
+      console.log('增加')
+      network.POST(api.addItem , item, app.globalData.userLoginToken, function (res) {
+        //列表成功
+        console.log(res.data)
+        that.onShow()
+      }, function (res) {
+        //获取列表失败
+        console.log(res.data)
+      })
+    }else{
+      console.log('修改')
+      network.PUT(api.changeItem + '?id=' + index, item, app.globalData.userLoginToken, function (res) {
+        //列表成功
+        console.log(res.data)
+        that.onShow()
+      }, function (res) {
+        //获取列表失败
+        console.log(res.data)
+      })
+    }
+   
+    // newList[index].uName = that.data.changeName,
     this.setData({
-      userList: newList,
-      changeName:"",
+      // userList: newList,
+      changeName: "",
       hiddenmodalput: true
     })
   },
   //获取用户输入的用户名
-  userNameInput: function (e) {
+  userNameInput: function(e) {
     this.setData({
       changeName: e.detail.value
     })

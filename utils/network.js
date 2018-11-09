@@ -118,7 +118,7 @@ params:请求参数
 success:成功的回调函数
 fail：失败的回调
 */
-function PUT(url, params, success, fail) {
+function PUT(url, params, token,success, fail) {
 
   let message = '数据加载中'
 
@@ -132,7 +132,8 @@ function PUT(url, params, success, fail) {
     data: params,
     header: {
       'Content-Type': 'application/json',
-      'product': 'iOS'
+      'product': 'iOS',
+      "token": token
     },
     method: 'PUT',
     success: function (res) {
@@ -169,7 +170,7 @@ params:请求参数
 success:成功的回调函数
 fail：失败的回调
 */
-function DELETE(url, params, success, fail) {
+function DELETE(url, params, token,success, fail) {
 
   let message = '数据加载中'
 
@@ -183,7 +184,8 @@ function DELETE(url, params, success, fail) {
     data: params,
     header: {
       'Content-Type': 'application/json',
-      'product': 'iOS'
+      'product': 'iOS',
+       "token": token
     },
     method: 'DELETE',
     success: function (res) {
