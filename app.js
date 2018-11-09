@@ -39,13 +39,11 @@ App({
         }
       }
     })
-    debugger
-    console.log('我进来了');
+    
     // 登录内部信息系统-匿名登录
     network.POST(api.nickLogin, {},'',
       function (res) {
-        console.log('我成功了');
-        console.log(res.result.token);
+        console.log('匿名token:' + res.result.token);
         that.globalData.userNickToken = res.result.token
       },
       function (err) {
@@ -57,6 +55,6 @@ App({
   globalData: {
     userInfo: null,
     userNickToken: '',
-    userLoginToken: ''
+    userLoginToken: '',
   }
 })

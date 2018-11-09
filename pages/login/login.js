@@ -2,6 +2,8 @@
 
 var network = require("../../utils/network.js")
 var api = require("../../utils/api.js")
+var util = require('../../utils/md5.js')  
+
 //获取应用实例
 var app = getApp()
 
@@ -16,22 +18,25 @@ Page({
   },
 
   loginBindTap: function (e) {
-    console.log(app.globalData.userNickToken)
-    // wx.switchTab({
-    //   url: '../home/home',
-    // })
+    var that = this;
+
+    var pas = util.hexMD5('a123456');
 
     var params = {
-      'loginId': '2200',
-      'password': 'a123456'
+      'loginId': '18691009168',
+      'password': pas,
+      'agency': '"SUPER_ADMIN"'
     }
     
     network.POST(api.loginToken, params, getApp().globalData.userNickToken,
       function (res) {
-        debugger
+        app.globalData.userLoginToken = res.result.token
+        wx.switchTab({
+          url: '../home/home',
+        })
       },
       function (err) {
-        debugger
+        
       }
     )
   },

@@ -1,5 +1,7 @@
-// URL
-const API_URL = 'http://192.168.2.74'
+// URL - 内部信息系统
+// const API_URL = 'http://192.168.2.74'
+// URL - 优造
+const API_URL = 'http://192.168.2.115'
 
 //获取应用实例
 var app = getApp()
