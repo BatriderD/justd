@@ -8,7 +8,6 @@ var util = require('../../utils/md5.js')
 var app = getApp()
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -17,9 +16,9 @@ Page({
     password: ""
   },
 
+  //点击登录
   loginBindTap: function (e) {
-    var that = this;
-
+    
     var pas = util.hexMD5('a123456');
 
     var params = {
