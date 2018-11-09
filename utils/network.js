@@ -1,4 +1,4 @@
-// URL - 内部信息系统
+﻿// URL - 内部信息系统
 // const API_URL = 'http://192.168.2.74'
 // URL - 优造
 const API_URL = 'http://192.168.2.115'
@@ -123,9 +123,7 @@ function POST(url, params, token, success, fail) {
 /*
 PUT
 */
-
 function PUT(url, params, token,success, fail) {
-
 
   let message = '数据加载中'
 
@@ -173,9 +171,7 @@ function PUT(url, params, token,success, fail) {
 /*
 DELETE
 */
-
 function DELETE(url, params, token,success, fail) {
-
 
   let message = '数据加载中'
 
@@ -190,7 +186,7 @@ function DELETE(url, params, token,success, fail) {
     header: {
       'Content-Type': 'application/json',
       'product': 'iOS',
-      "token": token
+       "token": token
     },
     method: 'DELETE',
     success: function (res) {
