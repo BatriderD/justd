@@ -7,6 +7,18 @@ const API_URL = 'http://192.168.2.115'
 var app = getApp()
 
 /*
+消息 _ERROR 过滤
+*/
+function getMessage(message) {
+  var arr = message.split('--')
+  if (arr.length == 2) {
+    return arr[1]
+  } else {
+    return message;
+  }
+}
+
+/*
 展示进度条的网络请求
 url:网络请求的url
 params:参数
@@ -60,16 +72,6 @@ function GET(url, params, token, success, fail) {
   })
 };
 
-function getMessage (message) {
-  // str =”jpg | bmp | gif | ico | png”; arr = str.split(”|”);
-  var arr = message.split('--')
-  if (arr.length == 2) {
-    return arr[1]
-  }else {
-    return message;
-  }
-}
-
 /*
 POST
 */
@@ -99,7 +101,7 @@ function POST(url, params, token, success, fail) {
         success(res.data)
       } else {
         wx.showToast({
-          // image: "/pages/images/icon_fail.png",
+          image: "/pages/images/icon_fail.png",
           title: getMessage(res.data.message),
         })
         fail({ code: res.data.status, msg: res.data.message })

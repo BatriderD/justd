@@ -19,7 +19,7 @@ Page({
   //点击登录
   loginBindTap: function (e) {
     
-    var pas = util.hexMD5('a1234562');
+    var pas = util.hexMD5('a123456');
 
     var params = {
       'loginId': '18691009168',
