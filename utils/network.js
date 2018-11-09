@@ -123,11 +123,9 @@ function POST(url, params, token, success, fail) {
 /*
 PUT
 */
-<<<<<<< HEAD
+
 function PUT(url, params, token,success, fail) {
-=======
-function PUT(url, params, token, success, fail) {
->>>>>>> 2d0ff4d1d1904f533d4c42fa506f8e94701cf0da
+
 
   let message = '数据加载中'
 
@@ -175,11 +173,9 @@ function PUT(url, params, token, success, fail) {
 /*
 DELETE
 */
-<<<<<<< HEAD
+
 function DELETE(url, params, token,success, fail) {
-=======
-function DELETE(url, params, token, success, fail) {
->>>>>>> 2d0ff4d1d1904f533d4c42fa506f8e94701cf0da
+
 
   let message = '数据加载中'
 
@@ -194,11 +190,7 @@ function DELETE(url, params, token, success, fail) {
     header: {
       'Content-Type': 'application/json',
       'product': 'iOS',
-<<<<<<< HEAD
-       "token": token
-=======
       "token": token
->>>>>>> 2d0ff4d1d1904f533d4c42fa506f8e94701cf0da
     },
     method: 'DELETE',
     success: function (res) {
